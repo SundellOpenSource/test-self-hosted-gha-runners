@@ -46,6 +46,13 @@ jobs:
         if: matrix.runner != 'ARM64'
         with:
           python-version: "3.8"
+      
+      # ruamel.yaml is a dependency for chartpress that fail to install without
+      # this
+      - name: Arm64 specific setup
+        run: |
+          sudo apt-get update
+          sudo apt-get install -yq python3-ruamel.yaml
 
       - name: Install chartpress
         run: pip install chartpress
