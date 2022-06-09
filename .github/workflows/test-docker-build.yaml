@@ -42,7 +42,7 @@ jobs:
           # correctly
           fetch-depth: 0
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         if: matrix.runner != 'ARM64'
         with:
           python-version: "3.8"
